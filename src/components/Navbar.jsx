@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { RiMenu2Fill } from "react-icons/ri";
 import { ClickAwayListener } from "@mui/material";
+import { signOut, useSession } from "next-auth/react";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const path = usePathname();
@@ -13,6 +15,20 @@ const Navbar = () => {
   const navShowHide = () => setNavShow((prev) => !prev);
   const [showProfile, setShowProfile] = useState(false);
   const profileShowHide = () => setShowProfile((prev) => !prev);
+
+  const { data: session, status } = useSession();
+  console.log("user:", session, status);
+
+  const handleLogout = async () => {
+    await signOut();
+    toast.success(`Logout Successful`, {
+      position: "top-center",
+      autoClose: 2000,
+      closeButton: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  };
   return (
     <ClickAwayListener
       onClickAway={() => {
@@ -82,30 +98,69 @@ const Navbar = () => {
             Games
           </Link>
         </ul>
-        <div className="flex items-center gap-3">
-          <Link
-            href="/login"
-            className={
-              path === "/login"
-                ? "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-800 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
-                : "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-500 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
-            }
-          >
-            <p className="text-lg font-medium sm:block hidden">Login</p>
-            <FiLogIn></FiLogIn>
-          </Link>
-          <Link
-            href="/register"
-            className={
-              path === "/register"
-                ? "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-800 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
-                : "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-500 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
-            }
-          >
-            <p className="text-lg font-medium sm:block hidden">Register</p>
-            <FaArrowAltCircleUp></FaArrowAltCircleUp>
-          </Link>
-        </div>
+
+        {session?.user ? (
+          <div className="relative">
+            <button onClick={profileShowHide}>
+              <img
+                className="h-12 w-12 object-cover rounded-full border-2 border-green-700 cursor-pointer hover:scale-105 duration-300 transition"
+                src={session?.user.image}
+                alt="User-Photo"
+              />
+            </button>
+            {showProfile && (
+              <div className="absolute top-16 right-2 flex flex-col gap-2 py-5 px-3 bg-gray-50 rounded-lg border-2">
+                <h3 className="text-lg text-green-700 font-bold">
+                  {session?.user.name}
+                </h3>
+                <p className="text-lg text-gray-600 font-medium">
+                  {session?.user.email}
+                </p>
+                <div>
+                  <Link
+                    className="text-xl font-semibold hover:text-gray-600 duration-300 hover:scale-105 transition"
+                    href="/profile"
+                  >
+                    Profile
+                  </Link>
+                </div>
+                <div>
+                  <button
+                    onClick={handleLogout}
+                    className="mt-3 text-xl text-left font-bold text-red-600 cursor-pointer hover:text-red-800 duration-300 transition hover:scale-105"
+                  >
+                    Logout
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="flex items-center gap-3">
+            <Link
+              href="/login"
+              className={
+                path === "/login"
+                  ? "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-800 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
+                  : "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-500 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
+              }
+            >
+              <p className="text-lg font-medium sm:block hidden">Login</p>
+              <FiLogIn></FiLogIn>
+            </Link>
+            <Link
+              href="/register"
+              className={
+                path === "/register"
+                  ? "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-800 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
+                  : "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-500 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
+              }
+            >
+              <p className="text-lg font-medium sm:block hidden">Register</p>
+              <FaArrowAltCircleUp></FaArrowAltCircleUp>
+            </Link>
+          </div>
+        )}
       </nav>
     </ClickAwayListener>
   );
