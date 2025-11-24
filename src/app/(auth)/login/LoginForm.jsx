@@ -43,20 +43,7 @@ const LoginForm = () => {
 
   // Google Login
   const handleGoogleMethod = async () => {
-    const res = await signIn("google", { redirect: false });
-
-    if (res?.ok) {
-      toast.success("Login Successful!", {
-        position: "top-right",
-        autoClose: 2000,
-      });
-      router.push("/");
-    } else {
-      toast.error("Google Login Failed", {
-        position: "top-right",
-        autoClose: 2000,
-      });
-    }
+    const res = await signIn("google", { callbackUrl: "/" });
   };
 
   return (
