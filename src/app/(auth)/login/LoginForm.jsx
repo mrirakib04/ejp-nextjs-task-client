@@ -43,26 +43,28 @@ const LoginForm = () => {
 
   // Google Login
   const handleGoogleMethod = async () => {
-    const res = await signIn("google", { callbackUrl: "/" });
+    const res = await signIn("google", { callbackUrl: "/callback" });
   };
 
   return (
     <div className="w-full flex flex-col items-center sm:gap-5 gap-2 px-5 py-10">
       <div className="flex flex-col gap-1 items-center md:mt-8 mt-4">
-        <h3 className="md:text-4xl text-2xl italic font-semibold">Login</h3>
-        <p className="text-base font-medium text-purple-500">
-          Login to access your challenge details.
+        <h3 className="md:text-4xl text-2xl italic font-semibold bg-linear-to-br from-emerald-800 to-purple-500 bg-clip-text text-transparent">
+          Login
+        </h3>
+        <p className="text-base font-medium text-emerald-500">
+          Login to access your games
         </p>
       </div>
 
       <Divider
-        className="lg:w-3/5 md:w-7/12 sm:w-9/12 w-full mx-auto!"
+        className="lg:w-2/5 md:w-6/12 sm:w-8/12 w-full mx-auto!"
         orientation="horizontal"
         variant="middle"
         flexItem
       />
 
-      <div className="flex flex-col gap-4 lg:w-2/5 md:w-6/12 sm:w-8/12 w-full">
+      <div className="flex flex-col gap-4 lg:w-2/6 md:w-5/12 sm:w-7/12 w-full">
         <form
           onSubmit={handleFormSubmit}
           className="flex flex-col justify-center gap-4 mt-4 w-full"
@@ -112,14 +114,16 @@ const LoginForm = () => {
           </div>
         </form>
 
-        <p className="text-xl font-bold text-center">or</p>
+        <Divider orientation="horizontal" variant="middle" flexItem />
 
         <button
           onClick={handleGoogleMethod}
-          className="w-full mx-auto border-2 border-cyan-500 bg-white rounded-md text-xl font-semibold transition hover:shadow-md hover:scale-105 shadow-gray-400/90 hover:border-cyan-600 py-2 flex items-center justify-center gap-2 text-black cursor-pointer"
+          className="w-full mx-auto border-2 border-teal-500 bg-white rounded-md text-xl font-semibold transition hover:shadow-md hover:scale-[1.01] shadow-gray-400/90 hover:border-cyan-600 py-2 flex items-center justify-center gap-2 cursor-pointer"
         >
           <FcGoogle className="text-2xl" />
-          Google
+          <span className="bg-linear-to-r from-orange-700 via-sky-700 to-yellow-700 bg-clip-text text-transparent">
+            Google
+          </span>
         </button>
 
         <p className="font-medium text-lg flex items-center gap-1">

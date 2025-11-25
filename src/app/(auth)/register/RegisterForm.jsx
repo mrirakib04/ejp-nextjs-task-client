@@ -68,14 +68,16 @@ const RegisterForm = () => {
   };
 
   const handleGoogleMethod = async () => {
-    await signIn("google", { callbackUrl: "/" });
+    await signIn("google", { callbackUrl: "/callback" });
   };
 
   return (
     <div className="w-full flex flex-col items-center sm:gap-5 gap-2 px-5 py-10">
       <div className="flex flex-col gap-1 items-center md:mt-8 mt-4">
-        <h3 className="md:text-4xl text-2xl italic font-semibold">Register</h3>
-        <p className="text-base font-medium text-emerald-500">
+        <h3 className="md:text-4xl text-2xl italic font-semibold bg-linear-to-br from-blue-800 to-red-500 bg-clip-text text-transparent">
+          Register
+        </h3>
+        <p className="text-base font-medium text-sky-500">
           Join us to buy and sale games seamlessly.
         </p>
       </div>
@@ -142,13 +144,16 @@ const RegisterForm = () => {
           </div>
         </form>
 
-        <p className="text-xl font-bold text-center">or</p>
+        <Divider orientation="horizontal" variant="middle" flexItem />
 
         <button
           onClick={handleGoogleMethod}
-          className="w-full md:w-1/2 mx-auto border-2 border-cyan-500 bg-white rounded-md text-xl font-semibold transition hover:shadow-md hover:scale-105 shadow-gray-400/90 hover:border-cyan-600 py-2 flex items-center justify-center gap-2 text-black cursor-pointer"
+          className="w-full md:w-1/2 mx-auto border-2 border-teal-500 bg-white rounded-md text-xl font-semibold transition hover:shadow-md hover:scale-105 shadow-gray-400/90 hover:border-cyan-600 py-2 flex items-center justify-center gap-2 cursor-pointer"
         >
-          <FcGoogle className="text-2xl" /> Google
+          <FcGoogle className="text-2xl" />
+          <span className="bg-linear-to-r from-orange-700 via-sky-700 to-yellow-700 bg-clip-text text-transparent">
+            Google
+          </span>
         </button>
 
         <p className="font-medium text-lg flex items-center gap-1">

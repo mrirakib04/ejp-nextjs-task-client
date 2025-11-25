@@ -1,4 +1,5 @@
-import { useRouter } from "next/router";
+"use client";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 
@@ -15,4 +16,4 @@ const CallbackUser = () => {
   );
 };
 
-export default page;
+export default CallbackUser;

@@ -48,8 +48,8 @@ const Navbar = () => {
                   <Link
                     className={
                       path === "/"
-                        ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-br from-purple-300 to-white hover:from-purple-300 hover:to-cyan-100"
-                        : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-br from-white to-white hover:from-purple-300 hover:to-cyan-100"
+                        ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+                        : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
                     }
                     href={"/"}
                   >
@@ -58,8 +58,8 @@ const Navbar = () => {
                   <Link
                     className={
                       path === "/games"
-                        ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-br from-purple-300 to-white hover:from-purple-300 hover:to-cyan-100"
-                        : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-br from-white to-white hover:from-purple-300 hover:to-cyan-100"
+                        ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+                        : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
                     }
                     href={"/games"}
                   >
@@ -80,8 +80,8 @@ const Navbar = () => {
           <Link
             className={
               path === "/"
-                ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-br from-purple-300 to-white hover:from-purple-300 hover:to-cyan-100"
-                : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-br from-white to-white hover:from-purple-300 hover:to-cyan-100"
+                ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+                : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
             }
             href={"/"}
           >
@@ -90,8 +90,8 @@ const Navbar = () => {
           <Link
             className={
               path === "/games"
-                ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-br from-purple-300 to-white hover:from-purple-300 hover:to-cyan-100"
-                : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-br from-white to-white hover:from-purple-300 hover:to-cyan-100"
+                ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+                : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
             }
             href={"/games"}
           >
