@@ -41,7 +41,11 @@ const HomeFeatures = () => {
     <section className="w-full py-16 bg-linear-to-b from-orange-100 via-white to-purple-200">
       <div className="max-w-[1200px] mx-auto px-5">
         <h2 className="text-3xl md:text-4xl font-bold text-center">
-          Why With <span className="text-purple-700 font-serif">GameHub</span>?
+          Why With{" "}
+          <span className="bg-linear-to-br from-purple-800 to-cyan-500 bg-clip-text text-transparent font-serif">
+            GameHub
+          </span>
+          ?
         </h2>
         <p className="text-center text-gray-600 mt-2 mb-10 text-base sm:text-lg max-w-2xl mx-auto">
           A trusted game publishing platform to buy, sell, and discover the best
