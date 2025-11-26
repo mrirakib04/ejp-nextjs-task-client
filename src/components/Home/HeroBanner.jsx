@@ -10,7 +10,7 @@ const HeroBanner = () => {
   const { data: session } = useSession();
 
   const handlePrimary = () => {
-    if (session?.user) return router.push("/products");
+    if (session?.user) return router.push("/games");
     signIn();
   };
 

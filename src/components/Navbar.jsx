@@ -30,14 +30,13 @@ const Navbar = () => {
     });
   };
   return (
-    <ClickAwayListener
-      onClickAway={() => {
-        setShowProfile(false);
-        setNavShow(false);
-      }}
-    >
-      <nav className="flex items-center justify-between gap-5 py-5 max-w-[1480px] mx-auto bg-white/90 w-full px-5 shadow-md fixed z-50">
-        <div className="relative text-xl flex gap-3 font-bold items-center">
+    <nav className="flex items-center justify-between gap-5 py-5 max-w-[1480px] mx-auto bg-white/90 w-full px-5 shadow-md fixed z-50">
+      <div className="relative text-xl flex gap-3 font-bold items-center">
+        <ClickAwayListener
+          onClickAway={() => {
+            setNavShow(false);
+          }}
+        >
           <div className="flex">
             <button className="lg:hidden text-2xl" onClick={navShowHide}>
               <RiMenu2Fill></RiMenu2Fill>
@@ -65,41 +64,95 @@ const Navbar = () => {
                   >
                     Games
                   </Link>
+                  {session?.user && (
+                    <>
+                      <Link
+                        className={
+                          path === "/add"
+                            ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+                            : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
+                        }
+                        href={"/add"}
+                      >
+                        Add Game
+                      </Link>
+                      <Link
+                        className={
+                          path === "/manage"
+                            ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+                            : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
+                        }
+                        href={"/manage"}
+                      >
+                        My Games
+                      </Link>
+                    </>
+                  )}
                 </ul>
               </div>
             )}
           </div>
-          <Link
-            className="text-xl font-bold bg-linear-to-br from-purple-800 to-cyan-500 bg-clip-text text-transparent hover:from-purple-600 hover:to-cyan-400 duration-300 transition hover:scale-105"
-            href={"/"}
-          >
-            GameHub
-          </Link>
-        </div>
-        <ul className="lg:flex hidden items-center gap-3 text-lg font-medium text-black">
-          <Link
-            className={
-              path === "/"
-                ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
-                : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
-            }
-            href={"/"}
-          >
-            Home
-          </Link>
-          <Link
-            className={
-              path === "/games"
-                ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
-                : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
-            }
-            href={"/games"}
-          >
-            Games
-          </Link>
-        </ul>
+        </ClickAwayListener>
+        <Link
+          className="text-xl font-bold bg-linear-to-br from-purple-800 to-cyan-500 bg-clip-text text-transparent hover:from-purple-600 hover:to-cyan-400 duration-300 transition hover:scale-105"
+          href={"/"}
+        >
+          GameHub
+        </Link>
+      </div>
+      <ul className="lg:flex hidden items-center gap-3 text-lg font-medium text-black">
+        <Link
+          className={
+            path === "/"
+              ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+              : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
+          }
+          href={"/"}
+        >
+          Home
+        </Link>
+        <Link
+          className={
+            path === "/games"
+              ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+              : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
+          }
+          href={"/games"}
+        >
+          Games
+        </Link>
+        {session?.user && (
+          <>
+            <Link
+              className={
+                path === "/add"
+                  ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+                  : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
+              }
+              href={"/add"}
+            >
+              Add Game
+            </Link>
+            <Link
+              className={
+                path === "/manage"
+                  ? "hover:text-purple-700 duration-300 text-sky-800 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-purple-200 to-white hover:from-purple-200 hover:to-orange-100"
+                  : "hover:text-purple-700 duration-300 transition px-3 py-1 rounded-md shadow-md hover:shadow-lg bg-linear-to-t from-white to-white hover:from-purple-200 hover:to-orange-100"
+              }
+              href={"/manage"}
+            >
+              My Games
+            </Link>
+          </>
+        )}
+      </ul>
 
-        {session?.user ? (
+      {session?.user ? (
+        <ClickAwayListener
+          onClickAway={() => {
+            setShowProfile(false);
+          }}
+        >
           <div className="relative">
             <button onClick={profileShowHide}>
               <img
@@ -135,34 +188,34 @@ const Navbar = () => {
               </div>
             )}
           </div>
-        ) : (
-          <div className="flex items-center gap-3">
-            <Link
-              href="/login"
-              className={
-                path === "/login"
-                  ? "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-800 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
-                  : "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-500 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
-              }
-            >
-              <p className="text-lg font-medium sm:block hidden">Login</p>
-              <FiLogIn></FiLogIn>
-            </Link>
-            <Link
-              href="/register"
-              className={
-                path === "/register"
-                  ? "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-800 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
-                  : "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-500 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
-              }
-            >
-              <p className="text-lg font-medium sm:block hidden">Register</p>
-              <FaArrowAltCircleUp></FaArrowAltCircleUp>
-            </Link>
-          </div>
-        )}
-      </nav>
-    </ClickAwayListener>
+        </ClickAwayListener>
+      ) : (
+        <div className="flex items-center gap-3">
+          <Link
+            href="/login"
+            className={
+              path === "/login"
+                ? "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-800 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
+                : "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-500 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
+            }
+          >
+            <p className="text-lg font-medium sm:block hidden">Login</p>
+            <FiLogIn></FiLogIn>
+          </Link>
+          <Link
+            href="/register"
+            className={
+              path === "/register"
+                ? "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-800 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
+                : "flex gap-2 items-center sm:px-3 p-1 bg-linear-to-br from-purple-700 to-cyan-500 hover:shadow-md transition shadow-gray-400 text-white rounded-full text-2xl border border-gray-500"
+            }
+          >
+            <p className="text-lg font-medium sm:block hidden">Register</p>
+            <FaArrowAltCircleUp></FaArrowAltCircleUp>
+          </Link>
+        </div>
+      )}
+    </nav>
   );
 };
 
