@@ -8,6 +8,8 @@ import { RiMenu2Fill } from "react-icons/ri";
 import { ClickAwayListener } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
+import logo from "@/images/mrir_with_bg.jpg";
+import Image from "next/image";
 
 const Navbar = () => {
   const path = usePathname();
@@ -94,10 +96,17 @@ const Navbar = () => {
           </div>
         </ClickAwayListener>
         <Link
-          className="text-xl font-bold bg-linear-to-br from-purple-800 to-cyan-500 bg-clip-text text-transparent hover:from-purple-600 hover:to-cyan-400 duration-300 transition hover:scale-105"
+          className="duration-300 transition hover:scale-105 flex items-center gap-2 group"
           href={"/"}
         >
-          GameHub
+          <Image
+            className="sm:w-10 w-8 border-b-2 border-l-2 border-black rounded-tl-lg rounded-br-lg group-hover:border-purple-700 duration-300 group-hover:scale-105"
+            src={logo}
+            alt="logo"
+          />
+          <h1 className="sm:block hidden text-xl font-bold bg-linear-to-br from-purple-800 to-cyan-500 bg-clip-text text-transparent group-hover:from-purple-600 hover:to-cyan-400 ">
+            GameHub
+          </h1>
         </Link>
       </div>
       <ul className="lg:flex hidden items-center gap-3 text-lg font-medium text-black">
