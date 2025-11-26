@@ -1,9 +1,8 @@
 "use client";
 import { signIn, useSession } from "next-auth/react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { FaHandHoldingHeart } from "react-icons/fa";
-import { MdGroups, MdTipsAndUpdates } from "react-icons/md";
-import { RiSecurePaymentLine } from "react-icons/ri";
+import gamehub from "@/images/gamehub.jpeg";
 
 const HeroBanner = () => {
   const router = useRouter();
@@ -18,33 +17,6 @@ const HeroBanner = () => {
     if (session?.user) return router.push("/add");
     router.push("/register");
   };
-
-  const features = [
-    {
-      title: "Secure System",
-      icon: <RiSecurePaymentLine className="text-4xl text-sky-600" />,
-      fromColor: "from-sky-200",
-      desc: "Safe payments & verified users",
-    },
-    {
-      title: "Best Sellers",
-      icon: <MdGroups className="text-4xl text-orange-700" />,
-      fromColor: "from-orange-200",
-      desc: "Top-selling trending games",
-    },
-    {
-      title: "Latest Games",
-      icon: <MdTipsAndUpdates className="text-4xl text-indigo-700" />,
-      fromColor: "from-indigo-200",
-      desc: "Fresh releases every week",
-    },
-    {
-      title: "24/7 Support",
-      icon: <FaHandHoldingHeart className="text-4xl text-green-600" />,
-      fromColor: "from-green-200",
-      desc: "Instant help anytime",
-    },
-  ];
 
   return (
     <header className="w-full py-16 md:py-24 bg-linear-to-b from-indigo-200 via-white to-sky-200 text-gray-900 overflow-hidden">
@@ -85,22 +57,11 @@ const HeroBanner = () => {
 
         {/* Right — feature icons */}
         <div className="w-full lg:w-6/12 flex justify-center">
-          <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-            {features.map((item, i) => (
-              <div
-                key={i}
-                className={`md:p-6 p-2 rounded-2xl bg-linear-to-br ${item.fromColor} via-white to-white shadow-md hover:shadow-xl transition border border-gray-200 flex flex-col items-center text-center rounded-tl-none rounded-br-none`}
-              >
-                {item.icon}
-                <h4 className="font-semibold text-gray-900 mt-2 md:text-lg sm:text-base text-sm">
-                  {item.title}
-                </h4>
-                <p className="sm:text-sm text-xs text-gray-600 mt-1">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          <Image
+            className="w-full rounded-xl max-w-2xl mx-auto object-cover"
+            src={gamehub}
+            alt="logo"
+          />
         </div>
       </div>
     </header>

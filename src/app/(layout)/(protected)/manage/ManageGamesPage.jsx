@@ -104,15 +104,15 @@ const ManageGamesPage = () => {
         </p>
 
         {/* Search + Filter */}
-        <div className="flex flex-col md:flex-row gap-4 mb-10 md:justify-between justify-center items-center max-w-5xl mx-auto w-full">
+        <div className="flex flex-col sm:flex-row gap-4 mb-10 md:justify-between justify-center items-center max-w-5xl mx-auto w-full">
           <TextField
             label="Search Games"
             variant="filled"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full md:w-1/3"
+            className="w-full lg:w-1/4 md:w-1/3 sm:w-1/2"
           />
-          <FormControl className="w-full md:w-1/4">
+          <FormControl className="w-full lg:w-1/4 md:w-1/3 sm:w-1/2">
             <InputLabel>Genre</InputLabel>
             <Select
               value={genre}

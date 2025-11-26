@@ -32,7 +32,7 @@ const Navbar = () => {
     });
   };
   return (
-    <nav className="flex items-center justify-between gap-5 py-5 max-w-[1480px] mx-auto bg-white/90 w-full px-5 shadow-md fixed z-50">
+    <nav className="flex items-center justify-between gap-5 py-5 max-w-[1480px] mx-auto bg-linear-to-r from-purple-100/90 via-white/90 to-sky-100/90 w-full px-5 shadow-md fixed z-50">
       <div className="relative text-xl flex gap-3 font-bold items-center">
         <ClickAwayListener
           onClickAway={() => {
