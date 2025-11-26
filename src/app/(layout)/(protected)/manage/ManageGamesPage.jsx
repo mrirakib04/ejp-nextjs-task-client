@@ -16,6 +16,7 @@ import Swal from "sweetalert2";
 import Loader from "@/components/Loader/Loader";
 import AOS from "aos";
 import { MdNearbyError } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const ManageGamesPage = () => {
   const [games, setGames] = useState([]);
