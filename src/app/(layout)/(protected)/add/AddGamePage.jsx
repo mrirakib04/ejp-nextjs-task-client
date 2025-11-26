@@ -46,14 +46,17 @@ const AddGamePage = () => {
       return;
     }
 
-    const res = await fetch("http://localhost:6510/games", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...game,
-        userEmail: session?.user?.email,
-      }),
-    });
+    const res = await fetch(
+      "https://mrirakib-ejp-nextjs-task-server.vercel.app/games",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...game,
+          userEmail: session?.user?.email,
+        }),
+      }
+    );
 
     if (res.ok) {
       toast.success("Game added successfully!", {

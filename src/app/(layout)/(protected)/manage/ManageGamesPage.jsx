@@ -34,7 +34,7 @@ const ManageGamesPage = () => {
         if (!session?.user?.email) return;
 
         const res = await fetch(
-          `http://localhost:6510/games/user?email=${session?.user.email}`
+          `https://mrirakib-ejp-nextjs-task-server.vercel.app/games/user?email=${session?.user.email}`
         );
         const data = await res.json();
         setGames(data);
@@ -65,9 +65,12 @@ const ManageGamesPage = () => {
 
     if (confirm.isConfirmed) {
       try {
-        const res = await fetch(`http://localhost:6510/games/${id}`, {
-          method: "DELETE",
-        });
+        const res = await fetch(
+          `https://mrirakib-ejp-nextjs-task-server.vercel.app/games/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
         if (res.ok) {
           setGames(games.filter((g) => g._id !== id));
           toast.success("Game deleted successfully!", {

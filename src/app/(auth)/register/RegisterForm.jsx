@@ -35,16 +35,19 @@ const RegisterForm = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:6510/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: nameVal,
-          email: emailVal,
-          password: passwordVal,
-          image: imageVal,
-        }),
-      });
+      const res = await fetch(
+        "https://mrirakib-ejp-nextjs-task-server.vercel.app/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: nameVal,
+            email: emailVal,
+            password: passwordVal,
+            image: imageVal,
+          }),
+        }
+      );
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Registration failed");

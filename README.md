@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# EJP-Task: GameHub – Modern Gaming Marketplace
 
-## Getting Started
+GameHub is a modern gaming marketplace where users can explore the latest games, view detailed product information, and enjoy a smooth and responsive user experience. The frontend is built using React, Next.js (App Router) and Tailwind CSS.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- Games Listing
+  Fetches all available games from the `/games` endpoint. Fully responsive layout with clean UI.
+
+- Game Details Page
+  Dynamic route `/games/[id]`
+  Shows game cover, title, description, genre, price, rating, and upload date.
+
+- Optimized Data Fetching
+  Includes loading, error handling, retry logic, and smooth transitions.
+
+- Modern UI/UX
+  Minimal, professional layout styled with Tailwind CSS.
+  Includes animations (optional) and a polished responsive design.
+
+---
+
+## Technologies Used
+
+- Frontend: React.js, Next.js (App Router), Tailwind CSS
+- Backend: Node.js, Express.js, MongoDB
+- Deployment: Vercel
+
+---
+
+### Live Site Link
+
+- [https://mrirakib-ejp-nextjs-task-client.vercel.app/](https://mrirakib-ejp-nextjs-task-client.vercel.app/)
+
+### Client Repository
+
+- [https://github.com/mrirakib04/ejp-nextjs-task-client](https://github.com/mrirakib04/ejp-nextjs-task-client)
+
+### Server Repository
+
+- [https://github.com/mrirakib04/ejp-nextjs-task-server](https://github.com/mrirakib04/ejp-nextjs-task-server)
+
+---
+
+## Routing
+
+- `/` → Homepage
+- `/games` → All Games
+- `/games/[id]` → Single product details page
+- `/add` → Add Game (Protected)
+- `/manage` → Manage My Games (Protected)
+
+---
+
+## Dev Dependencies
+
+```json
+ "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.5",
+    "aos": "^2.3.4",
+    "dotenv": "^17.2.3",
+    "next": "16.0.3",
+    "next-auth": "^4.24.13",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-fast-marquee": "^1.6.5",
+    "react-icons": "^5.5.0",
+    "react-toastify": "^11.0.5",
+    "sweetalert2": "^11.26.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.3",
+    "tailwindcss": "^4"
+  }
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# Installation Guide (Client)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 1) Clone the Repository
 
-## Learn More
+git clone [https://github.com/your-username/gamehub-client](https://github.com/your-username/gamehub-client)
+cd gamehub-client
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 2) Install Dependencies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+npm install
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 3) Create Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Create a `.env.local` file:
+
+NEXT_PUBLIC_BASE_URL=[http://localhost:6510](http://localhost:6510)
+
+---
+
+## 4) Run the Client
+
+npm run dev

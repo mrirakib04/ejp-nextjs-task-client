@@ -19,14 +19,17 @@ const Profile = () => {
     setIsNameSubmitting(true);
 
     try {
-      const res = await fetch("http://localhost:6510/update-name", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: session?.user.email,
-          name: userName,
-        }),
-      });
+      const res = await fetch(
+        "https://mrirakib-ejp-nextjs-task-server.vercel.app/update-name",
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: session?.user.email,
+            name: userName,
+          }),
+        }
+      );
 
       const data = await res.json();
 
@@ -51,14 +54,17 @@ const Profile = () => {
     setIsImageSubmitting(true);
 
     try {
-      const res = await fetch("http://localhost:6510/update-photo", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: session?.user.email,
-          image: userImage,
-        }),
-      });
+      const res = await fetch(
+        "https://mrirakib-ejp-nextjs-task-server.vercel.app/update-photo",
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: session?.user.email,
+            image: userImage,
+          }),
+        }
+      );
 
       const data = await res.json();
 

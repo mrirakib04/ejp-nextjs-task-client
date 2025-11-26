@@ -15,7 +15,9 @@ const LatestGames = () => {
 
     const fetchLatest = async () => {
       try {
-        const res = await fetch("http://localhost:6510/latest/games");
+        const res = await fetch(
+          "https://mrirakib-ejp-nextjs-task-server.vercel.app/latest/games"
+        );
         const data = await res.json();
         setGames(data);
       } catch (error) {
@@ -45,7 +47,9 @@ const LatestGames = () => {
         {/* Games Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {loading ? (
-            <Loader></Loader>
+            <div className="md:col-span-3 sm:col-span-2 text-center">
+              <Loader></Loader>
+            </div>
           ) : games.length === 0 ? (
             <div className="text-center md:col-span-3 sm:col-span-2 text-orange-500 font-medium flex flex-col items-center gap-3">
               <MdNearbyError className="text-4xl" />

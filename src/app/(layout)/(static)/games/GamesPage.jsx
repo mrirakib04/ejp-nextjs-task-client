@@ -29,7 +29,9 @@ const GamesPage = () => {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const res = await fetch(`http://localhost:6510/games`);
+        const res = await fetch(
+          `https://mrirakib-ejp-nextjs-task-server.vercel.app/games`
+        );
         const data = await res.json();
         setGames(data);
       } catch (error) {

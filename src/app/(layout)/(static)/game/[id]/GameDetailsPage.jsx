@@ -12,7 +12,9 @@ const GameDetailsPage = ({ id }) => {
   useEffect(() => {
     const fetchGame = async () => {
       try {
-        const res = await fetch(`http://localhost:6510/games/details?id=${id}`);
+        const res = await fetch(
+          `https://mrirakib-ejp-nextjs-task-server.vercel.app/games/details?id=${id}`
+        );
         const data = await res.json();
         setGame(data);
       } catch (error) {
