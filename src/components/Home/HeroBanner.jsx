@@ -69,14 +69,14 @@ const HeroBanner = () => {
           <div className="mt-8 flex flex-wrap items-center gap-4 justify-center lg:justify-start">
             <button
               onClick={handlePrimary}
-              className="px-5 py-2 rounded-lg text-lg cursor-pointer shadow-md hover:shadow-lg hover:scale-[1.02] transition font-semibold bg-linear-to-br font-serif from-pink-700 to-cyan-700 text-white hover:to-purple-700"
+              className="px-5 py-2 rounded-lg text-lg cursor-pointer shadow-md hover:shadow-lg hover:scale-[1.02] transition font-semibold bg-linear-to-br font-serif from-pink-700 to-sky-700 rounded-br-none text-white hover:to-black"
             >
               {session?.user ? "Browse Games" : "Let's Start"}
             </button>
 
             <button
               onClick={handleSecondary}
-              className="px-5 py-2 rounded-lg text-lg font-semibold cursor-pointer bg-linear-to-br hover:scale-[1.02] from-gray-100 to-white backdrop-blur font-serif border border-gray-300 hover:from-purple-300 hover:shadow-lg transition"
+              className="px-5 py-2 rounded-lg text-lg cursor-pointer shadow-md hover:shadow-lg hover:scale-[1.02] transition font-semibold bg-linear-to-br font-serif from-sky-700 to-black rounded-tl-none text-white hover:to-purple-700"
             >
               {session?.user ? "Add Game" : "Register"}
             </button>

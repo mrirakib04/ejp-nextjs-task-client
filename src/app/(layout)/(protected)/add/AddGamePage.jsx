@@ -78,7 +78,7 @@ const AddGamePage = () => {
 
   return (
     <div className="flex justify-center py-20 px-5 w-full bg-linear-to-b from-sky-100 via-white to-teal-100 items-center flex-col">
-      <h2 className="font-bold text-center mb-6 md:text-4xl font-serif sm:text-3xl text-2xl">
+      <h2 className="font-bold text-center mb-6 md:text-4xl font-serif sm:text-3xl text-2xl bg-linear-to-br from-purple-700 to-sky-500 bg-clip-text text-transparent">
         Add Game
       </h2>
 
